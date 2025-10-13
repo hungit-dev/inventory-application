@@ -1,0 +1,36 @@
+@media (max-width:900px) {
+
+    /*home page*/
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    #categories {
+        grid-auto-flow: row;
+    }
+
+    #stats-actions-section {
+        flex-direction: column;
+    }
+
+    #quick-actions,
+    #quick-stats {
+        width: 100%;
+        min-height: 7rem;
+    }
+
+    /*create page */
+    form {
+
+        margin-top: 1rem;
+        width: 90%;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Inventory
+    </title>
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="home-page.css">
+    <link rel="stylesheet" href="responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <main>
+            <div id="categories-section">
+                <div id="header">
+                    <h2>Categories</h2>
+                    <button><a href="/create">+ Add Category</a></button>
+                </div>
+                <div id="categories">
+                    <div class="category">
+                        <h3>📁 Cheese</h3>
+                        <div class="buttons">
+                            <button class="edit-button"><a href="">Edit</a></button>
+                            <button class="delete-button"><a href="">Delete</a></button>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <h3>📁 Cheese</h3>
+                        <div class="buttons">
+                            <button class="edit-button"><a href="">Edit</a></button>
+                            <button class="delete-button"><a href="">Delete</a></button>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <h3>📁 Cheese</h3>
+                        <div class="buttons">
+                            <button class="edit-button"><a href="">Edit</a></button>
+                            <button class="delete-button"><a href="">Delete</a></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="stats-actions-section">
+                <div id="quick-stats">
+                    <h2>📊Quick stats:</h2>
+                    <p>Total categories : <span>3</span></p>
+                </div>
+                <div id="quick-actions">
+                    <h2>🚀Quick actions:</h2>
+                    <ul>
+                        <li><a href="">-> Add new item</a></li>
+                        <li><a href="">-> Add new category</a></li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+</html>
