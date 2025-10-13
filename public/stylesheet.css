@@ -1,0 +1,220 @@
+:root {
+    --border-radius: 6px
+}
+
+html {
+    background-color: #DBEAFE;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+h1 {
+    font-size: 2.6rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+/*default value for normal buttons */
+button {
+    cursor: pointer;
+    background-color: #2563EB;
+    color: #FFFFFF;
+    border: 0;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #1D4ED8;
+}
+
+button:active {
+    background-color: #1E40AF;
+    transform: scale(0.98);
+
+}
+
+/*header*/
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    padding: 3rem;
+
+}
+
+header>div {
+    display: flex;
+    flex-direction: column;
+}
+
+header>button {
+    width: 80px;
+    height: 40px;
+
+}
+
+/*main*/
+main {
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+#categories-section {
+    padding: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main #header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main #header>h2 {
+    color: #2563EB;
+}
+
+main #header>button {
+    width: 120px;
+    height: 40px;
+
+}
+
+#categories {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: #F3F4F6;
+    min-width: 250px;
+    border-radius: var(--border-radius);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-button {
+    width: 100px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: #16A34A;
+    border: 0;
+    border-radius: var(--border-radius);
+}
+
+.edit-button:hover {
+    background-color: #15803D;
+}
+
+.edit-button:active {
+    background-color: #166534;
+}
+
+.delete-button {
+    width: 120px;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: #DC2626;
+    border: 0;
+    border-radius: var(--border-radius)
+}
+
+.delete-button:hover {
+    background-color: #B91C1C;
+}
+
+.delete-button:active {
+    background-color: #991B1B;
+    transform: scale(0.95);
+}
+
+#stats-actions-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#quick-stats {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    width: 50%;
+}
+
+#quick-stats span {
+    color: #2563EB;
+}
+
+#quick-actions {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #FFFFFF;
+    width: 50%;
+}
+
+#quick-actions ul {
+    color: #2563EB;
+    list-style-type: none;
+}
+
+@media (max-width:900px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    #categories {
+        grid-auto-flow: row;
+    }
+
+    #stats-actions-section {
+        flex-direction: column;
+    }
+
+    #quick-actions,
+    #quick-stats {
+        width: 100%;
+        min-height: 7rem;
+    }
+}
