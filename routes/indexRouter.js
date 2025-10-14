@@ -1,13 +1,11 @@
 const { Router } = require("express");
 const indexRouter = Router();
-
-indexRouter.get("/",(req,res)=>{
-    res.render("home-page")
-    
-})
-indexRouter.get("/create",(req,res)=>{
-    res.render("create-page")
-    
-})
+const categoriesRouter = require("./categoriesRouter");
+const itemsRouter = require("./itemsRouter");
+indexRouter.get("/", (req, res) => {
+  res.render("home-page");
+});
+indexRouter.use("/categories", categoriesRouter);
+indexRouter.use("/items", itemsRouter);
 
 module.exports = indexRouter;

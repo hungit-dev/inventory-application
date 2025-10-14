@@ -5,10 +5,10 @@
     <title>
         Inventory
     </title>
-    <link rel="stylesheet" href="default.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="create-page.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="/default.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/create-page.css">
+    <link rel="stylesheet" href="/responsive.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -17,16 +17,12 @@
     <%- include('../partials/header') %>
 
         <main>
-            <form action="/create">
+            <form action="/create-category">
                 <h2>Create New Category</h2>
                 <div id="form-fields">
                     <div class="field">
                         <label for="category-name">Category name:</label>
                         <input type="text" id="category-name">
-                    </div>
-                    <div class="field">
-                        <label for="password">Password:</label>
-                        <input type="text" id="password">
                     </div>
                 </div>
                 <div id="form-buttons">

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Inventory
+    </title>
+    <link rel="stylesheet" href="/default.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/create-page.css">
+    <link rel="stylesheet" href="/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <main>
+            <form action="/create-category">
+                <h2>Create New Item</h2>
+                <div id="form-fields">
+                    <div class="field">
+                        <label for="item">Item name:</label>
+                        <input type="text" id="category-name">
+                    </div>
+                    <div class="field">
+                        <label for="quantity">Quantity:</label>
+                        <input type="text" id="quantity">
+                    </div>
+                    <div class="field">
+                        <label for="category">Category:</label>
+                        <select name="category" id="category">
+                            <option value="apple">Apple</option>
+                            <option value="orange">Orange</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="form-buttons">
+                    <button>Create category</button>
+                    <span><a href="/">Go back</a></span>
+                </div>
+            </form>
+        </main>
+
+</html>
