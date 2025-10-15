@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Inventory
+    </title>
+    <link rel="stylesheet" href="/default.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/item-view.css">
+    <link rel="stylesheet" href="/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <main>
+            <div id="item-container">
+                <h2>Item Details</h2>
+                <div id="details">
+                    <p>Name: <span class="name">Apple</span></p>
+                    <p>Quantity: <span class="quantity">7</span></p>
+                    <p>Category: <span class="category">Fruits</span></p>
+                </div>
+                <div class=buttons>
+                    <button class="edit-button">Edit</button>
+                    <button class="delete-button">Delete</button>
+                    <a href="">Back to category</a>
+                </div>
+            </div>
+        </main>
+
+</html>

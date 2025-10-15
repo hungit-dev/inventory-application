@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Inventory
+    </title>
+    <link rel="stylesheet" href="/default.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/category-view.css">
+    <link rel="stylesheet" href="/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <main>
+            <div id="category-container">
+                <h2>Cheese</h2>
+                <div id="category-items">
+                    <div class="item">
+                        <div class="name-quantity">
+                            <p>Name: <span class="name">Parmesan</span></p>
+                            <p>Quantity: <span class="quantity">10</span></p>
+                        </div>
+                        <div class="buttons">
+                            <button class="details-button">Details</button>
+                            <button class="edit-button">Edit</button>
+                            <button class="delete-button">Delete</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name-quantity">
+                            <p>Name: <span class="name">Parmesan</span></p>
+                            <p>Quantity: <span class="quantity">10</span></p>
+                        </div>
+                        <div class="buttons">
+                            <button class="details-button">Details</button>
+                            <button class="edit-button">Edit</button>
+                            <button class="delete-button">Delete</button>
+                        </div>
+                    </div>
+
+                </div>
+                <button><a href="/items/create">Create new item</a></button>
+            </div>
+        </main>
+
+</html>

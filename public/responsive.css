@@ -1,3 +1,11 @@
+@media (max-width:1300px) {
+
+    /*category-view page */
+    #category-container {
+        width: 70%;
+    }
+}
+
 @media (max-width:900px) {
 
     /*home page*/
@@ -32,5 +40,40 @@
 
         margin-top: 1rem;
         width: 90%;
+    }
+
+    /*item-view page */
+    #item-container {
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    /*category-view page */
+    #category-container {
+        width: 90%;
+    }
+
+    .item {
+        flex-direction: column;
+    }
+
+    .item .buttons {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    #category-container>button,
+    .item .details-button,
+    .item .edit-button,
+    .item .delete-button {
+        height: 35px;
+    }
+
+    .name-quantity {
+        justify-content: center;
+        gap: 2rem;
     }
 }

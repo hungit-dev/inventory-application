@@ -9,6 +9,7 @@ form {
   gap: 1rem;
   border-radius: var(--border-radius);
   min-width: 370px;
+  box-shadow: var(--box-shadow);
 }
 
 form h2 {
