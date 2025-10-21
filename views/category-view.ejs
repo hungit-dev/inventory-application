@@ -17,32 +17,31 @@
     <%- include('../partials/header') %>
         <main>
             <div id="category-container">
-                <h2>Cheese</h2>
+                <h2>
+                    <%=category%>
+                </h2>
                 <div id="category-items">
-                    <div class="item">
-                        <div class="name-quantity">
-                            <p>Name: <span class="name">Parmesan</span></p>
-                            <p>Quantity: <span class="quantity">10</span></p>
-                        </div>
-                        <div class="buttons">
-                            <button class="details-button">Details</button>
-                            <button class="edit-button">Edit</button>
-                            <button class="delete-button">Delete</button>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="name-quantity">
-                            <p>Name: <span class="name">Parmesan</span></p>
-                            <p>Quantity: <span class="quantity">10</span></p>
-                        </div>
-                        <div class="buttons">
-                            <button class="details-button">Details</button>
-                            <button class="edit-button">Edit</button>
-                            <button class="delete-button">Delete</button>
-                        </div>
-                    </div>
-
+                    <%if(items) {%>
+                        <%items.forEach(function(item){ %>
+                            <div class="item">
+                                <div class="name-quantity">
+                                    <p>Name: <span class="name">
+                                            <%=item.name%>
+                                        </span></p>
+                                    <p>Quantity: <span class="quantity">
+                                            <%=item.quantity%>
+                                        </span></p>
+                                </div>
+                                <div class="buttons">
+                                    <button class="details-button">Details</button>
+                                    <button class="edit-button">Edit</button>
+                                    <button class="delete-button">Delete</button>
+                                </div>
+                            </div>
+                            <% })%>
+                                <%} %>
                 </div>
+
                 <button><a href="/items/create">Create new item</a></button>
             </div>
         </main>

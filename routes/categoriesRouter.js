@@ -1,9 +1,8 @@
 const { Router } = require("express");
 const categoriesRouter = Router();
+const controller = require("../controllers/categoriesController.js");
 categoriesRouter.get("/create", (req, res) => {
   res.render("create-category-page");
 });
-categoriesRouter.get("/1",(req,res)=>{
-  res.render("category-view");
-})
+categoriesRouter.get("/1", controller.showItemsInCategoryGet);
 module.exports = categoriesRouter;
