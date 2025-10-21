@@ -1,4 +1,5 @@
 const db = require("../db/queries");
+const { body, validationResult } = require("express-validator");
 async function showItemsInCategoryGet(req, res) {
   try {
     category_id = Number(req.params.id);
@@ -26,6 +27,21 @@ async function showItemsInCategoryGet(req, res) {
     res.status(500).send("Sever error");
   }
 }
+const validateCategoryForm = [
+  body("category-name").trim().notEmpty().withMessage("Name cannot be empty."),
+];
+async function addNewCategoryPost(req, res) {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res
+      .status(400)
+      .render("create-category-page", { errors: errors.array() });
+  }
+  await db.addNewCategory(req.body["category-name"]);
+  res.redirect("/");
+}
 module.exports = {
   showItemsInCategoryGet,
+  validateCategoryForm,
+  addNewCategoryPost,
 };

@@ -17,13 +17,15 @@
     <%- include('../partials/header') %>
 
         <main>
-            <form action="/create-category">
+
+            <form action="/categories/create" method="post">
                 <h2>Create New Category</h2>
                 <div id="form-fields">
-                    <div class="field">
-                        <label for="category-name">Category name:</label>
-                        <input type="text" id="category-name">
-                    </div>
+                    <%- include("../partials/errors",{errors: errors}) %>
+                        <div class="field">
+                            <label for="category-name">Category name:</label>
+                            <input type="text" id="category-name" name="category-name">
+                        </div>
                 </div>
                 <div id="form-buttons">
                     <button>Create category</button>

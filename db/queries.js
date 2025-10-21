@@ -23,7 +23,13 @@ WHERE categories.category_id =$1`,
     return rows;
   }
 }
+async function addNewCategory(categoryName) {
+  await pool.query("INSERT INTO categories (category_name) VALUES ($1)", [
+    categoryName,
+  ]);
+}
 module.exports = {
   showAllCategoryNames,
   getItemsForCategory,
+  addNewCategory,
 };

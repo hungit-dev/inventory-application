@@ -16,7 +16,10 @@ form h2 {
   text-align: center;
   color: #2563ec;
 }
-
+form li {
+  color: red;
+  list-style-type: none;
+}
 form input,
 form select {
   width: 100%;
