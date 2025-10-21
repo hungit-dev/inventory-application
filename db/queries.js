@@ -1,6 +1,8 @@
 const pool = require("./pool");
 async function showAllCategoryNames() {
-  const { rows } = await pool.query("SELECT category_name FROM categories");
+  const { rows } = await pool.query(
+    "SELECT category_id,category_name FROM categories"
+  );
   return rows;
 }
 async function getItemsForCategory(categoryId) {
@@ -28,8 +30,14 @@ async function addNewCategory(categoryName) {
     categoryName,
   ]);
 }
+async function removeCategory(categoryId) {
+  await pool.query("DELETE FROM categories WHERE category_id = $1", [
+    categoryId,
+  ]);
+}
 module.exports = {
   showAllCategoryNames,
   getItemsForCategory,
   addNewCategory,
+  removeCategory,
 };

@@ -12,7 +12,7 @@ async function showItemsInCategoryGet(req, res) {
     if (data.length > 1) {
       for (let item of data) {
         const itemInfo = {
-          customer_name: item["customer_name"],
+          customerName: item["customer_name"],
           quantity: item["quantity"],
         };
         categoryInfo.items.push(itemInfo);
@@ -40,8 +40,14 @@ async function addNewCategoryPost(req, res) {
   await db.addNewCategory(req.body["category-name"]);
   res.redirect("/");
 }
+async function removeCategoryGet(req, res) {
+  const id = req.params.id;
+  await db.removeCategory(id);
+  res.redirect("/");
+}
 module.exports = {
   showItemsInCategoryGet,
   validateCategoryForm,
   addNewCategoryPost,
+  removeCategoryGet,
 };
