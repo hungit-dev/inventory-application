@@ -1,0 +1,16 @@
+<%if(categories) { %>
+    <% categories.forEach(function(category){ %>
+        <a href="">
+            <div class="category">
+                <h3>📁 <%=category %>
+                </h3>
+                <div class="buttons">
+                    <button class="edit-button" onclick="
+                                        event.stopPropagation(); event.preventDefault(); ">Edit</button>
+                    <button class="delete-button" onclick="
+                                        event.stopPropagation(); event.preventDefault();">Delete</button>
+                </div>
+            </div>
+        </a>
+        <% }); %>
+            <% } %>

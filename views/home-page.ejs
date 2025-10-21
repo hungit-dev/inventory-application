@@ -22,44 +22,7 @@
                     <button><a href="/categories/create">+ Add Category</a></button>
                 </div>
                 <div id="categories">
-                    <a href="">
-                        <div class="category">
-                            <h3>📁 Cheese</h3>
-                            <div class="buttons">
-                                <button class="edit-button" onclick="
-                                    event.stopPropagation(); event.preventDefault(); ">Edit</button>
-                                <button class="delete-button" onclick="
-                                    event.stopPropagation(); event.preventDefault();">Delete</button>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="category">
-                            <h3>📁 Cheese</h3>
-                            <div class="buttons">
-                                <button class="edit-button"
-                                    onclick="
-                                                        event.stopPropagation(); event.preventDefault(); ">Edit</button>
-                                <button class="delete-button"
-                                    onclick="
-                                                        event.stopPropagation(); event.preventDefault();">Delete</button>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="category">
-                            <h3>📁 Cheese</h3>
-                            <div class="buttons">
-                                <button class="edit-button"
-                                    onclick="
-                                                        event.stopPropagation(); event.preventDefault(); ">Edit</button>
-                                <button class="delete-button"
-                                    onclick="
-                                                        event.stopPropagation(); event.preventDefault();">Delete</button>
-                            </div>
-                        </div>
-                    </a>
-
+                    <%- include('../partials/categories',{categories: categories}) %>
                 </div>
             </div>
             <div id="stats-actions-section">
