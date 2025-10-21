@@ -1,6 +1,6 @@
 <%if(categories) { %>
-    <% categories.forEach(function(category){ %>
-        <a href="">
+    <% categories.forEach(function(category,index){ %>
+        <a href="/categories/<%=index+1 %>">
             <div class="category">
                 <h3>📁 <%=category %>
                 </h3>

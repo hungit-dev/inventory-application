@@ -4,5 +4,5 @@ const controller = require("../controllers/categoriesController.js");
 categoriesRouter.get("/create", (req, res) => {
   res.render("create-category-page");
 });
-categoriesRouter.get("/1", controller.showItemsInCategoryGet);
+categoriesRouter.get("/:id", controller.showItemsInCategoryGet);
 module.exports = categoriesRouter;
