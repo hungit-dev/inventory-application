@@ -2,7 +2,7 @@ const db = require("../db/queries");
 
 async function homePageGet(req, res) {
   try {
-    const categories = await db.showAllCategoryNames(); // get an array contains multiple obj, each obj is 1 category
+    const categories = await db.showAllCategoryNamesAndId(); // get an array contains multiple obj, each obj is 1 category
     let categoryNames = [];
     for (let category in categories) {
       categoryNames.push({
