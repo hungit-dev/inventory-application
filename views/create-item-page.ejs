@@ -31,8 +31,14 @@
                     <div class="field">
                         <label for="category">Category:</label>
                         <select name="category" id="category">
-                            <option value="apple">Apple</option>
-                            <option value="orange">Orange</option>
+                            <% if (categories) {%>
+                                <%categories.forEach(category=> { %>
+                                    <option value="apple">
+                                        <%=category%>
+                                    </option>
+                                    <% }) %>
+                                        <% } %>
+
                         </select>
                     </div>
                 </div>
