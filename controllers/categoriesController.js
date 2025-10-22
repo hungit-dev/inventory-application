@@ -9,15 +9,15 @@ async function showItemsInCategoryGet(req, res) {
     let items = [];
     categoryInfo.categoryName = categoryName;
     categoryInfo.items = items;
-    if (data.length > 1) {
       for (let item of data) {
+        if (item["item_name"]) {
         const itemInfo = {
-          customerName: item["customer_name"],
+          itemName: item["item_name"],
           quantity: item["quantity"],
         };
         categoryInfo.items.push(itemInfo);
       }
-    }
+      }
     res.render("category-view", {
       category: categoryInfo.categoryName,
       items: categoryInfo.items,
