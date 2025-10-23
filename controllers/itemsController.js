@@ -1,15 +1,55 @@
 const db = require("../db/queries");
-
-async function showCreateItemPageGet (req,res){
+const { body, validationResult } = require("express-validator");
+const validateItemForm = [
+  body("item-name").trim().notEmpty().withMessage("Name cannot be empty."),
+  body("quantity").trim().notEmpty().withMessage("Quantity cannot be empty.").isInt({min:1}).withMessage("Quantity must be a positive number")
+];
+async function showCreateItemPageGet (req,res){ //get all categories and show them as options in create item form
     const data = await db.showAllCategoryNames();
     let categoryNames=[];
     for (let category of data){
         categoryNames.push(category["category_name"])
     }
-    console.log(categoryNames)
-    res.render("create-item-page",{categories:categoryNames});
+    res.render("create-item-page",{categories:categoryNames,errors:[]});
 }
+async function addNewItemToCategoryPost(req,res){ //add new item to a category
+    const data = await db.showAllCategoryNames();
+    let categoryNames=[];
+    for (let category of data){
+        categoryNames.push(category["category_name"])
+    }
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res
+      .status(400)
+      .render("create-item-page", { categories:categoryNames,errors: errors.array() });
+  }
+  //get item_id to add to create new order
+ const itemNameData =await db.searchItem(req.body["item-name"]);
+ if (itemNameData.length === 0) { //run if item which user is trying to add does not exist 
+      const newItem = await db.addNewItem(req.body["item-name"])
+ }
+ const itemRows = await db.getItemIdByName(req.body["item-name"])
+ const itemId=Number(itemRows[0].item_id)
+ 
+ //get category_id to create new order
+ const categoryRows = await db.getCategoryIdByName(req.body["category"])
+ const categoryId= Number(categoryRows[0].category_id)
 
+ //get quantity to create new order
+ const quantity=Number(req.body["quantity"])
+ const orderRows=await db.selectOrderByItemIdAndCategoryId(itemId,categoryId)
+ if (orderRows.length === 0 ){ //check if order not exists
+    await db.addNewOrder(itemId,categoryId,quantity)
+ } else {
+    res.render("create-item-page", { categories:categoryNames,errors: [{msg:"Order has already existed"}] }) // if exists, alert user
+    return
+ }
+ res.redirect("/")
+
+}
 module.exports = {
-    showCreateItemPageGet
+    showCreateItemPageGet,
+    validateItemForm,
+    addNewItemToCategoryPost
 }

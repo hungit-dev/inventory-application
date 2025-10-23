@@ -17,32 +17,33 @@
     <%- include('../partials/header') %>
 
         <main>
-            <form action="/create-category">
+            <form action="/items/create" method="post">
                 <h2>Create New Item</h2>
                 <div id="form-fields">
-                    <div class="field">
-                        <label for="item">Item name:</label>
-                        <input type="text" id="category-name">
-                    </div>
-                    <div class="field">
-                        <label for="quantity">Quantity:</label>
-                        <input type="text" id="quantity">
-                    </div>
-                    <div class="field">
-                        <label for="category">Category:</label>
-                        <select name="category" id="category">
-                            <% if (categories) {%>
-                                <%categories.forEach(category=> { %>
-                                    <option value="apple">
-                                        <%=category%>
-                                    </option>
-                                    <% }) %>
-                                        <% } %>
+                    <%- include("../partials/errors",{errors: errors}) %>
+                        <div class="field">
+                            <label for="item">Item name:</label>
+                            <input type="text" id="item-name" name="item-name">
+                        </div>
+                        <div class="field">
+                            <label for="quantity">Quantity:</label>
+                            <input type="text" id="quantity" name="quantity">
+                        </div>
+                        <div class="field">
+                            <label for="category">Category:</label>
+                            <select name="category" id="category">
+                                <% if (categories) {%>
+                                    <%categories.forEach(category=> { %>
+                                        <option value="<%=category%>">
+                                            <%=category%>
+                                        </option>
+                                        <% }) %>
+                                            <% } %>
 
-                        </select>
-                    </div>
+                            </select>
+                        </div>
                 </div>
-                <div id="form-buttons">
+                <div id=" form-buttons">
                     <button>Create item</button>
                     <span><a href="/">Go back</a></span>
                 </div>

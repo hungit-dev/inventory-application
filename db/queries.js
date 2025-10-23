@@ -41,9 +41,28 @@ async function removeCategory(categoryId) {
     categoryId,
   ]);
 }
+async function searchItem(itemName){
+  const {rows}=await pool.query("SELECT item_name FROM items WHERE item_name=$1",[itemName])
+  return rows
+}
+async function getItemIdByName(itemName) {
+  const {rows} = await pool.query("SELECT item_id FROM items WHERE item_name=$1",[itemName])
+  return rows
+}
+async function addNewItem(itemName){
+  await pool.query("INSERT INTO items (item_name) VALUES ($1)",[itemName])
+}
+async function addNewOrder(itemId,categoryId,quantity) {
+  await pool.query("INSERT INTO orders (item_id,category_id,quantity) VALUES ($1,$2,$3)",[itemId,categoryId,quantity])
+}
+async function getCategoryIdByName(categoryName){
+ const {rows} = await pool.query("SELECT category_id FROM categories WHERE category_name=$1",[categoryName])
+  return rows
+}
 
-async function addNewItem(){
-  await pool.query("INSERT INTO ")
+async function selectOrderByItemIdAndCategoryId(itemId,categoryId){
+  const {rows} =await pool.query("SELECT * FROM orders WHERE item_id=$1 AND category_id=$2",[itemId,categoryId])
+  return rows
 }
 module.exports = {
   showAllCategoryNames,
@@ -51,4 +70,10 @@ module.exports = {
   getItemsForCategory,
   addNewCategory,
   removeCategory,
+  searchItem,
+  getItemIdByName,
+  addNewItem,
+  addNewOrder,
+  getCategoryIdByName,
+  selectOrderByItemIdAndCategoryId
 };
