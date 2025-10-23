@@ -1,6 +1,7 @@
 const db = require("../db/queries");
 const { body, validationResult } = require("express-validator");
-async function showItemsInCategoryGet(req, res) { //show all items in 1 category
+async function showItemsInCategoryGet(req, res) {
+  //show all items in 1 category
   try {
     category_id = Number(req.params.id);
     const data = await db.getItemsForCategory(category_id);
@@ -9,15 +10,15 @@ async function showItemsInCategoryGet(req, res) { //show all items in 1 category
     let items = [];
     categoryInfo.categoryName = categoryName;
     categoryInfo.items = items;
-      for (let item of data) {
-        if (item["item_name"]) {
+    for (let item of data) {
+      if (item["item_name"]) {
         const itemInfo = {
           itemName: item["item_name"],
           quantity: item["quantity"],
         };
         categoryInfo.items.push(itemInfo);
       }
-      }
+    }
     res.render("category-view", {
       category: categoryInfo.categoryName,
       items: categoryInfo.items,
@@ -30,12 +31,21 @@ async function showItemsInCategoryGet(req, res) { //show all items in 1 category
 const validateCategoryForm = [
   body("category-name").trim().notEmpty().withMessage("Name cannot be empty."),
 ];
-async function addNewCategoryPost(req, res) { //add new category
+async function addNewCategoryPost(req, res) {
+  //add new category
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res
       .status(400)
       .render("create-category-page", { errors: errors.array() });
+  }
+  const categoryRows = await db.getCategoryIdByName(req.body["category-name"]);
+  if (categoryRows.length > 0) {
+    //if the category already exists, show error
+    res.render("create-category-page", {
+      errors: [{ msg: "Category already exists" }],
+    });
+    return;
   }
   await db.addNewCategory(req.body["category-name"]);
   res.redirect("/");
