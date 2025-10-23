@@ -91,6 +91,12 @@ async function searchCategoryNameById(categoryId) {
   );
   return rows;
 }
+async function removeItemFromCategory(itemId, categoryId) {
+  await pool.query("DELETE FROM orders WHERE item_id=$1 AND category_id=$2", [
+    itemId,
+    categoryId,
+  ]);
+}
 module.exports = {
   showAllCategoryNames,
   showAllCategoryNamesAndId,
@@ -105,4 +111,5 @@ module.exports = {
   selectOrderByItemIdAndCategoryId,
   searchItemNameById,
   searchCategoryNameById,
+  removeItemFromCategory,
 };

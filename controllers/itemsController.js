@@ -68,7 +68,6 @@ async function showItemInCategoryGet(req, res) {
     req.params.itemId,
     req.params.categoryId
   );
-  console.log(dataRows);
   const itemId = dataRows[0].item_id;
   const categoryId = dataRows[0].category_id;
   const quantity = dataRows[0].quantity;
@@ -84,9 +83,14 @@ async function showItemInCategoryGet(req, res) {
   };
   res.render("item-view", { order: order });
 }
+async function removeItemFromCategoryGet(req, res) {
+  await db.removeItemFromCategory(req.params.itemId, req.params.categoryId);
+  res.redirect(`/categories/${req.params.categoryId}`);
+}
 module.exports = {
   showCreateItemPageGet,
   validateItemForm,
   addNewItemToCategoryPost,
   showItemInCategoryGet,
+  removeItemFromCategoryGet,
 };

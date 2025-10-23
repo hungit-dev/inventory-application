@@ -9,4 +9,8 @@ itemsRouter.post(
   controller.addNewItemToCategoryPost
 );
 itemsRouter.get("/:itemId-:categoryId", controller.showItemInCategoryGet);
+itemsRouter.get(
+  "/:itemId-:categoryId/delete",
+  controller.removeItemFromCategoryGet
+);
 module.exports = itemsRouter;
