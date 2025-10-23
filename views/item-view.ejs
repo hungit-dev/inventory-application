@@ -19,9 +19,15 @@
             <div id="item-container">
                 <h2>Item Details</h2>
                 <div id="details">
-                    <p>Name: <span class="name">Apple</span></p>
-                    <p>Quantity: <span class="quantity">7</span></p>
-                    <p>Category: <span class="category">Fruits</span></p>
+                    <p>Name: <span class="name">
+                            <%=order.itemName%>
+                        </span></p>
+                    <p>Quantity: <span class="quantity">
+                            <%=order.quantity%>
+                        </span></p>
+                    <p>Category: <span class="category">
+                            <%=order.categoryName%>
+                        </span></p>
                 </div>
                 <div class=buttons>
                     <button class="edit-button">Edit</button>

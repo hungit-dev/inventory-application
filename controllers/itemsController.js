@@ -63,8 +63,30 @@ async function addNewItemToCategoryPost(req, res) {
   }
   res.redirect("/");
 }
+async function showItemInCategoryGet(req, res) {
+  const dataRows = await db.selectOrderByItemIdAndCategoryId(
+    req.params.itemId,
+    req.params.categoryId
+  );
+  console.log(dataRows);
+  const itemId = dataRows[0].item_id;
+  const categoryId = dataRows[0].category_id;
+  const quantity = dataRows[0].quantity;
+  const itemNameRows = await db.searchItemNameById(itemId);
+  const categoryNameRows = await db.searchCategoryNameById(categoryId);
+  const itemName = itemNameRows[0].item_name;
+  const categoryName = categoryNameRows[0].category_name;
+  const order = {
+    itemName: itemName,
+    categoryName: categoryName,
+    quantity: quantity,
+  };
+  console.log(order);
+  res.render("item-view", { order: order });
+}
 module.exports = {
   showCreateItemPageGet,
   validateItemForm,
   addNewItemToCategoryPost,
+  showItemInCategoryGet,
 };
