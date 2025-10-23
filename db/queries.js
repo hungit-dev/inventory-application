@@ -11,7 +11,7 @@ async function showAllCategoryNamesAndId() {
 }
 async function getItemsForCategory(categoryId) {
   const { rows } = await pool.query(
-    `SELECT categories.category_name,items.item_name,orders.quantity 
+    `SELECT categories.category_name,items.item_name,orders.quantity,items.item_id
     FROM orders INNER JOIN categories
 ON orders.category_id = categories.category_id 
 INNER JOIN items

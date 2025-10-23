@@ -15,6 +15,8 @@ async function showItemsInCategoryGet(req, res) {
         const itemInfo = {
           itemName: item["item_name"],
           quantity: item["quantity"],
+          itemId: item["item_id"],
+          categoryId: category_id,
         };
         categoryInfo.items.push(itemInfo);
       }

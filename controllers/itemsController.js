@@ -77,11 +77,11 @@ async function showItemInCategoryGet(req, res) {
   const itemName = itemNameRows[0].item_name;
   const categoryName = categoryNameRows[0].category_name;
   const order = {
+    categoryId: categoryId,
     itemName: itemName,
     categoryName: categoryName,
     quantity: quantity,
   };
-  console.log(order);
   res.render("item-view", { order: order });
 }
 module.exports = {
