@@ -1,79 +1,75 @@
-@media (max-width:1300px) {
-
-    /*category-view page */
-    #category-container {
-        width: 70%;
-    }
+@media (max-width: 1300px) {
+  /*category-view page */
+  #category-container {
+    width: 70%;
+  }
 }
 
-@media (max-width:900px) {
+@media (max-width: 900px) {
+  /*home page*/
+  h1 {
+    font-size: 1.5rem;
+  }
 
-    /*home page*/
-    h1 {
-        font-size: 1.5rem;
-    }
+  h2 {
+    font-size: 1.5rem;
+  }
 
-    h2 {
-        font-size: 1.5rem;
-    }
+  header {
+    padding: 1rem;
+  }
 
-    header {
-        padding: 1rem;
-    }
+  #categories {
+    grid-auto-flow: row;
+  }
 
-    #categories {
-        grid-auto-flow: row;
-    }
+  #stats-actions-section {
+    flex-direction: column;
+  }
 
-    #stats-actions-section {
-        flex-direction: column;
-    }
+  #quick-actions,
+  #quick-stats {
+    width: 100%;
+    min-height: 7rem;
+  }
 
-    #quick-actions,
-    #quick-stats {
-        width: 100%;
-        min-height: 7rem;
-    }
+  /*create page */
+  form {
+    margin-top: 1rem;
+    width: 90%;
+  }
 
-    /*create page */
-    form {
-
-        margin-top: 1rem;
-        width: 90%;
-    }
-
-    /*item-view page */
-    #item-container {
-        width: 80%;
-    }
-
+  /*item-view page */
+  #item-container {
+    width: 80%;
+  }
 }
 
 @media (max-width: 700px) {
+  /*category-view page */
+  #category-container {
+    width: 90%;
+  }
 
-    /*category-view page */
-    #category-container {
-        width: 90%;
-    }
+  .item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
-    .item {
-        flex-direction: column;
-    }
+  .item .buttons {
+    justify-content: center;
+    gap: 1rem;
+  }
 
-    .item .buttons {
-        justify-content: center;
-        gap: 1rem;
-    }
+  #category-container > button,
+  .item .details-button,
+  .item .edit-button,
+  .item .delete-button {
+    height: 35px;
+  }
 
-    #category-container>button,
-    .item .details-button,
-    .item .edit-button,
-    .item .delete-button {
-        height: 35px;
-    }
-
-    .name-quantity {
-        justify-content: center;
-        gap: 2rem;
-    }
+  .name-quantity {
+    justify-content: center;
+    gap: 2rem;
+  }
 }

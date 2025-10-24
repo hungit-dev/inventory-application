@@ -1,56 +1,54 @@
 :root {
-    --border-radius: 6px;
-    --box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --border-radius: 6px;
+  --box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 html {
-    background-color: #DBEAFE;
+  background-color: #dbeafe;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-
 h1 {
-    font-size: 2.6rem;
+  font-size: 2.6rem;
 }
 
 h2 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 p {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 a {
-    color: #FFFFFF;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /*default value for normal buttons */
 button {
-    cursor: pointer;
-    background-color: #2563EB;
-    border: 0;
-    color: #FFFFFF;
-    border-radius: var(--border-radius);
-    font-weight: bold;
+  cursor: pointer;
+  background-color: #2563eb;
+  border: 0;
+  color: #ffffff;
+  border-radius: var(--border-radius);
+  font-weight: bold;
 }
 
 button:hover {
-    background-color: #1D4ED8;
+  background-color: #1d4ed8;
 }
 
 button:active {
-    background-color: #1E40AF;
-    transform: scale(0.98);
-
+  background-color: #1e40af;
+  transform: scale(0.98);
 }

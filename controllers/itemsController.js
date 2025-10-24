@@ -77,6 +77,7 @@ async function showItemInCategoryGet(req, res) {
   const categoryName = categoryNameRows[0].category_name;
   const order = {
     categoryId: categoryId,
+    itemId: itemId,
     itemName: itemName,
     categoryName: categoryName,
     quantity: quantity,
