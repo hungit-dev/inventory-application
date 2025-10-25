@@ -57,9 +57,28 @@ async function removeCategoryGet(req, res) {
   await db.removeCategory(id);
   res.redirect("/");
 }
+async function showFormToEditGet(req,res) {
+  const categoryNameRows = await db.searchCategoryNameById(req.params.id)
+  const categoryName=categoryNameRows[0].category_name
+  res.render('edit-category-page',{errors:[],categoryName:categoryName,id:req.params.id})
+}
+async function editCategoryNamePost(req,res){
+  const categoryId=req.params.id
+  const newName=req.body["category-name"]
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res
+      .status(400)
+      .render("create-category-page", { errors: errors.array() });
+  }
+  await db.editCategoryName(newName,categoryId)
+  res.redirect("/")
+}
 module.exports = {
   showItemsInCategoryGet,
   validateCategoryForm,
   addNewCategoryPost,
   removeCategoryGet,
+  showFormToEditGet,
+  editCategoryNamePost
 };

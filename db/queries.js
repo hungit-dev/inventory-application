@@ -97,6 +97,9 @@ async function removeItemFromCategory(itemId, categoryId) {
     categoryId,
   ]);
 }
+async function editCategoryName(newCategoryName,categoryId){
+  await pool.query("UPDATE categories SET category_name=$1 WHERE category_id=$2",[newCategoryName,categoryId])
+}
 module.exports = {
   showAllCategoryNames,
   showAllCategoryNamesAndId,
@@ -112,4 +115,5 @@ module.exports = {
   searchItemNameById,
   searchCategoryNameById,
   removeItemFromCategory,
+  editCategoryName
 };

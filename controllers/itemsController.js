@@ -61,7 +61,7 @@ async function addNewItemToCategoryPost(req, res) {
     }); // if exists, alert user
     return;
   }
-  res.redirect("/");
+  res.redirect(`/categories/${categoryId}`);
 }
 async function showItemInCategoryGet(req, res) {
   const dataRows = await db.selectOrderByItemIdAndCategoryId(

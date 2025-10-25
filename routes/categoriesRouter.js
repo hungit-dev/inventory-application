@@ -14,4 +14,6 @@ categoriesRouter.post(
 );
 categoriesRouter.get("/:id/remove", controller.removeCategoryGet);
 categoriesRouter.get("/:id", controller.showItemsInCategoryGet);
+categoriesRouter.get("/:id/edit",controller.showFormToEditGet)
+categoriesRouter.post("/:id/edit",validateCategoryForm,controller.editCategoryNamePost)
 module.exports = categoriesRouter;

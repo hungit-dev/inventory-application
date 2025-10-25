@@ -5,8 +5,9 @@
                 <h3>📁 <%=category.categoryName %>
                 </h3>
                 <div class="buttons">
-                    <button class="edit-button" onclick="
-                                        event.stopPropagation(); event.preventDefault(); ">Edit</button>
+                    <button class="edit-button"
+                        onclick="
+                                        event.stopPropagation(); event.preventDefault(); window.location.href='/categories/<%=category.categoryId%>/edit'">Edit</button>
                     <button class="delete-button"
                         onclick="
                                         event.stopPropagation(); event.preventDefault(); window.location.href='/categories/<%=category.categoryId%>/remove'">Delete</button>
