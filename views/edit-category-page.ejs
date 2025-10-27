@@ -19,7 +19,7 @@
         <main>
 
             <form action="/categories/<%=id%>/edit" method="post">
-                <h2>Create New Category</h2>
+                <h2>Edit Category</h2>
                 <div id="form-fields">
                     <%- include("../partials/errors",{errors: errors}) %>
                         <div class="field">
@@ -29,7 +29,7 @@
                         </div>
                 </div>
                 <div id="form-buttons">
-                    <button>Create category</button>
+                    <button>Submit changes</button>
                     <span><a href="/">Go back</a></span>
                 </div>
             </form>
