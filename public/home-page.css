@@ -21,11 +21,11 @@ main #header {
   justify-content: space-between;
 }
 
-main #header>h2 {
+main #header > h2 {
   color: #2563eb;
 }
 
-main #header>button {
+main #header > button {
   width: 120px;
   height: 40px;
 }
